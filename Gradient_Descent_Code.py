@@ -1,0 +1,40 @@
+# Question : Write a code to write Gradient Descent from scratch with just numpy:
+
+import numpy as np
+def Grad_Desc(X,y,lr=0.01,iters=100):
+    n,d=X.shape #This gets the  number of features d and number of samples n
+ # Initialising weights randomly here 
+    # w=np.random.rand(d) # the shape of weight vector is (d,)
+    w=np.zeros(d) #--> more preferred 
+    b=0
+    for i in range(iters):
+        y_pred=np.dot(X,w)+b # nxd into (d,) is (n,)
+        error=y-y_pred # shape  is (n,)
+        dw=-(2/n)*X.T@(y-y_pred) # shape is  dxn into (n,) -->  (d,)
+        db=-(2/n)*np.sum((y-y_pred))
+        # Weight update
+        w=w-lr*dw  
+        b=b-lr*db  
+    return w,b
+
+
+#### MISTAKE ## MISTAKE
+'''
+
+Sbase Bada mistake and learning whenever writing multiplication of X and W or X with
+any pother like y in weight update get a habbit of wrtting X@W or np.dot()
+
+Its a blunder to use * symbol
+
+
+db = (2/n) * (y - y_pred)
+
+❌ Problem
+
+db must be a scalar
+This gives shape (n,)
+
+
+# error = y_pred - y   , FAANGs use this convention , not the errors 
+
+'''
