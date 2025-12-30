@@ -16,8 +16,9 @@ def encodin_departments():
 
 print(encodin_departments())
 
+prabhatsin/Code_Practics
 
-
+git remote add origin https://github.com/prabhatsin/Code_Practics.git
 
 
 # -----------------------------------------------------------------------------------------------------------------------------------------
